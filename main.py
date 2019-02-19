@@ -51,15 +51,15 @@ if new:
     X_train = np.array(images)
     y_train = np.array(measurments)
 
-    # X_train_param = X_train
-    # X_train_data = '../data/P3/images_data/X_train.pickle'
-    # with open(X_train_data, 'wb') as dump_file:
-    #     pickle.dump(X_train_param, dump_file)
+    X_train_param = X_train
+    X_train_data = '../data/P3/images_data/X_train.pickle'
+    with open(X_train_data, 'wb') as dump_file:
+        pickle.dump(X_train_param, dump_file)
 
-    # y_train_param = y_train
-    # y_train_data = '../data/P3/images_data/y_train.pickle'
-    # with open(y_train_data, 'wb') as dump_file:
-    #     pickle.dump(y_train_param, dump_file)
+    y_train_param = y_train
+    y_train_data = '../data/P3/images_data/y_train.pickle'
+    with open(y_train_data, 'wb') as dump_file:
+        pickle.dump(y_train_param, dump_file)
 
 if not(new):
     X_train_data = '../data/P3/images_data/X_train.pickle'
@@ -72,10 +72,11 @@ if not(new):
 
 from keras.layers import Dense, Flatten, Lambda
 from keras.models import Sequential
-from keras.layers.convolutional import Convolution2D, MaxPooling2D
+from keras.layers.convolutional import Convolution2D, MaxPooling2D, Cropping2D
 
 model = Sequential()
 model.add(Lambda(lambda x: x/255.0 - 0.5, input_shape=(160, 320, 3)))
+model.add(Cropping2D(cropping=((75,25), (0,0)), input_shape=(3,160,320)))
 model.add(Convolution2D(6, 5, 5, activation="relu"))
 model.add(MaxPooling2D())
 model.add(Convolution2D(6, 5, 5, activation="relu"))
