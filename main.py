@@ -73,7 +73,7 @@ def generator(samples, batch_size=32):
             y_train = np.array(measurments)
             yield sklearn.utils.shuffle(X_train, y_train)
 
-if 0:
+if 1:
     for line in tqdm(lines):
         source_path_center = line[0]
         source_path_left = line[1]
@@ -125,8 +125,8 @@ if not(new):
         y_train = pickle.load(dump_file)
 
 # compile and train the model using the generator function
-train_generator = generator(train_samples, batch_size=32)
-validation_generator = generator(validation_samples, batch_size=32)
+# train_generator = generator(train_samples, batch_size=32)
+# validation_generator = generator(validation_samples, batch_size=32)
 
 from keras.layers import Dense, Flatten, Lambda
 from keras.models import Sequential
@@ -148,14 +148,14 @@ model.add(Dense(1))
 
 model.compile(loss='mse', optimizer='adam')
 
-history_object = model.fit_generator(train_generator, steps_per_epoch= len(train_samples)*6,
-validation_data=validation_generator, validation_steps=len(validation_samples)*6, epochs=1, verbose = 1)
-# history_object = model.fit(X_train,
-#           y_train,
-#           validation_split=0.2,
-#           shuffle=True,
-#           nb_epoch=5,1
-#           verbose = 1)
+# history_object = model.fit_generator(train_generator, steps_per_epoch= len(train_samples)*6,
+# validation_data=validation_generator, validation_steps=len(validation_samples)*6, epochs=1, verbose = 1)
+history_object = model.fit(X_train,
+          y_train,
+          validation_split=0.2,
+          shuffle=True,
+          nb_epoch=3,
+          verbose = 1)
 
 
 
