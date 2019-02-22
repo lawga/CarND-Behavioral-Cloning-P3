@@ -1,7 +1,7 @@
 **Behavioral Cloning Project**
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
-![Udacity - Self-Driving Car P3](https://img.shields.io/badge/Status-Submitted-Yellow.svg)
+![Udacity - Self-Driving Car P3](https://img.shields.io/badge/Status-Pass-Green.svg)
 
 The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior
