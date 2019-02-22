@@ -26,6 +26,7 @@ The goals / steps of this project are the following:
 [image11]: ./report/center.jpg
 [image12]: ./report/left.jpg
 [image13]: ./report/right.jpg
+[image14]: ./report/center_flipped.jpg
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
